@@ -1,21 +1,21 @@
 {
-  "name": "humescores",
+  "name": "Trinity",
   "version": "0.0.1",
-  "description": "Accessible WordPress theme utilizing flex layouts and modern development practices.",
+  "description": "Accessible WordPress theme developed for Trinity Lutheran Church in Mt. Angel, Oregon",
   "main": "index.php",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mor10/humescores"
+    "url": "https://toristutzman.github.io/test/"
   },
-  "author": "Morten Rand-Hendriksen",
+  "author": "Tori Stutzman",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/mor10/humescores/issues"
+    "url": "https://toristutzman.github.io/test/"
   },
-  "homepage": "https://github.com/mor10/humescores#readme",
+  "homepage": "https://toristutzman.github.io/test/#readme",
   "devDependencies": {
     "autoprefixer": "^6.5.2",
     "browser-sync": "^2.17.6",
