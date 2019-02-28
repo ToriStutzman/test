@@ -120,6 +120,10 @@ add_action( 'widgets_init', 'trinity_widgets_init' );
  * Enqueue scripts and styles.
  */
 function trinity_scripts() {
+	
+	//Enque Typekit Fints: Aktiv Grotesk
+	wp_enqueue_style('trinity-fonts', 'https://use.typekit.net/vbr7xmm.css');
+	
 	wp_enqueue_style( 'trinity-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'trinity-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
