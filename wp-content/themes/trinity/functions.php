@@ -83,6 +83,39 @@ if ( ! function_exists( 'trinity_setup' ) ) :
 endif;
 add_action( 'after_setup_theme', 'trinity_setup' );
 
+
+/**
+ * Register custom fonts.
+ */
+function trinity_fonts_url() {
+	$fonts_url = '';
+
+	/*
+	 * Translators: If there are characters in your language that are not
+	 * supported by Libre Franklin, translate this to 'off'. Do not translate
+	 * into your own language.
+	 */
+	$aktiv_grotesk = _x( 'on', 'aktiv-grotesk font: on or off', 'trinity' );
+
+	$font_families = array();
+	
+	if ( 'off' !== $aktiv_grotesk ) {
+
+		$font_families[] = 'aktiv-grotesk:300,300i,400,400i,500,700,900';
+
+		$query_args = array(
+			'family' => urlencode( implode( '|', $font_families ) ),
+			'subset' => urlencode( 'latin,latin-ext' ),
+		);
+
+		$fonts_url = add_query_arg( $query_args, 'https://use.typekit.net/vbr7xmm.css' );
+	}
+
+	return esc_url_raw( $fonts_url );
+}
+
+
+
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
@@ -122,7 +155,7 @@ add_action( 'widgets_init', 'trinity_widgets_init' );
 function trinity_scripts() {
 	
 	//Enque Typekit Fints: Aktiv Grotesk
-	wp_enqueue_style('trinity-fonts', 'https://use.typekit.net/vbr7xmm.css');
+	wp_enqueue_style('trinity-fonts', trinity_fonts_url() );
 	
 	wp_enqueue_style( 'trinity-style', get_stylesheet_uri() );
 
@@ -162,4 +195,5 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
 
